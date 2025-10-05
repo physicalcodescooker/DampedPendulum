@@ -3,6 +3,7 @@ As a warmup, I first analyse the behaviour of the trajectory of the harmonic ocs
   $\frac{d^{2}}{d\theta^{2}} + \frac{1}{q} \frac{d\theta}{dt} +sin(\theta) = gcos(\omega_{D})$      (1)
 
 where $\omega_{D}$ is the driving frequency that is provided by an external force on a damped oscillator. The damping of the oscillator is due to a force that is proportional to the velocity (frictional force) and thus the damping term in (1) is  $\frac{1}{q} \frac{d\theta}{dt}$. 
+
 By taking the driving term as a constant independant of time, there are two ordinar differential equations (1) can be converted into,
 
  $\frac{d\theta}{dt} = \omega$                           (2)
@@ -55,16 +56,28 @@ ax1.set_xlabel('Time')
 ax1.set_ylabel('θ (radians)')
 ax1.set_title('Driven Damped Pendulum: Angle vs Time')
 ax1.grid(True, alpha=0.3)
+
+# Plot phase space (theta vs omega)
+ax2.plot(theta_sol, omega_sol, 'r-', linewidth=0.5, alpha=0.7)
+ax2.set_xlabel('θ (radians)')
+ax2.set_ylabel('ω (angular velocity)')
+ax2.set_title('Phase Space')
+ax2.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
 ```
-<img width="989" height="790" alt="download" src="https://github.com/user-attachments/assets/2942d4ba-4d32-4a13-8711-780678ac596c" />
-Ignore the plot labelled phase space for now, we analyze the curve in the first subplot.
+<img width="989" height="790" alt="download" src="https://github.com/user-attachments/assets/cc04b1b8-d59a-475a-8622-cded80bf4604" />
+
+
 The driven damped pendulum starting near the initial position exhibits a 16-second transient phase before settling into steady-state periodic motion. 
 Starting from θ ≈ π with zero velocity, the pendulum undergoes large-amplitude oscillations (t = 0-16s) as damping dissipates initial gravitational potential energy. 
 During this transitioning period, the driving force gradually establishes phase coherence or a stable frequency to match that of the pendulum motion.
+
 After t ≈ 16s, the system reaches dynamical equilibrium, settling into small-amplitude periodic oscillations (θ ≈ 0 ± 0.1 rad) centered at vertical equilibrium. 
 This steady state represents a limit cycle attractor where energy input from driving exactly balances energy loss from damping.
-Phase Space Interpretation
+
+
+### Phase Space Interpretation
 The phase space trajectory reveals the system's dissipative nature through its inward spiral pattern. This curve demonstrates how the system tends to move toward the limit cycle, with the spiral spacing decreasing as the change in the frequency decays and it moves towards stability. 
-The closed orbit in steady state confirms periodic behavior, characteristic of the sub-chaotic regime (g < 1.07).
-This analysis demonstrates three key dynamical principles:
-At g=0.9, the system remains in the periodic regime with predictable long-term behavior.
+The closed orbit in steady state confirms periodic behavior, characteristic of the sub-chaotic regime (g < 0.7).
