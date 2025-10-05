@@ -2,13 +2,14 @@
 We implement the driven damped pendulum oscillation equation. 
 $d²θ/dt² + (1/q)(dθ/dt) + sin(θ) = g·cos(ω_d·t)$
 Here,
-dθ/dt = ω: Kinematic relation (definition of angular velocity)
 
--(1/q)ω: Viscous damping (energy dissipation)
+$dθ/dt = ω$ : Kinematic relation (definition of angular velocity)
 
--sin(θ): Gravitational restoring torque (the term that is non-linear.)
+$-(1/q)ω$ : Viscous damping (energy dissipation)
 
-g·cos(ω_d·t): External periodic forcing (energy input)
+$-sin(θ)$ : Gravitational restoring torque (the term that is non-linear.)
+
+$g·cos(ω_d·t)$ : External periodic forcing (energy input)
 
 The solution is provided using the odient function.
 ```python
@@ -18,6 +19,15 @@ def pend(y, t, q, g, omega_d):
     domega_dt = -(1/q) * omega - np.sin(theta) + g * np.cos(omega_d * t)
     return [dtheta_dt, domega_dt]
 ```
+In dynamical systems, a poincare map or a poincare section is a one dimension lower subspace of the phase space that is often used for analyzing the original system in a simpler way. It is like the cross-section of the phase space that shows a transversal flow of the state of system. Transversal means that the system's trajectories cross this surface rather than moving parallel to it. 
+
+If there is a fixed point that the trajectory passes through after completing an orbit than the motion is periodic and exhibits stability. Such a system is not chaotic.
+
+If there a set of fixed points that form a closed curve usually reflect a quasi-periodic behaviour.
+
+If the points on the poincare section are scattered in a random order with no closed loops or a distinct coherent pattern than the motion exhibited by the system is purely chaotic.
+
+
 
 ```python
 def poincare_section(q, g, omega_d, y0, n_periods=500, transient_periods=100):
