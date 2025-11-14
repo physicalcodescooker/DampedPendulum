@@ -31,9 +31,15 @@ $$m\ddot{x} + b\dot{x} + k x = F_{0}cos(\omega) t$$
 
 Dividing both sides by m and using $\gamma = \frac{b}{m}, \omega_{0}^{2} = \frac{k}{m}$, to get the standard form,
 
-$$\ddot{x} + \gamma \dot{x} + \omega_{0}^{2} x = \frac{F_{0}}{m} cos(\omega t)$$ [^2]
+$$\ddot{x} + \gamma \dot{x} + \omega_{0}^{2} x = \zeta g cos(\omega t)$$ [^2]         (1)
 
 The general solution is a sum of a transient solutions that depends on initial conditions, and a steady state that is independent of initial conditions and depends only on the driving amplitude $$F_{0}$$, driving frequency $$\omega$$, undamped angular frequency $$\omega_{0}$$, and the damping ratio $$\zeta =\frac{F_{0}}{mg}$$.[^3]
+
+## Runge-Kutta 4 Method
+The Runge-Kutta 4 method of integration is an iterative method of numerical integration for non-linear equations. This method can be seamlessly used to solve linear equations as well. It is used in the discritization of the time interval of the function. The Runge-Kutta methods are a whole family with increase in order reflecting the increased accuracy of the approximated solution.
+
+In the case of the pendulum here, the $$\theta$$ is a function of time and so the Runge-Kutta method can be employed to approximate a solution for (1).
+
 
 The driving force $$\zeta = \frac{F_{0}}{mg}$$ is the dimensionless drive ratio. For a small oscillator, large amplitudes can't be achieved and it is observed that after a transient period the system settles to the driving frequency.Thus, the initial behaviour of the system depends on the initial conditions but any differences due to initial conditions decay rapidly.
 
@@ -47,26 +53,17 @@ The driving force $$\zeta = \frac{F_{0}}{mg}$$ is the dimensionless drive ratio.
 <img width="495" height="395" alt="download" src="https://github.com/user-attachments/assets/fb0ca360-0afc-4fdb-96bf-667051202e32" />
 </p><p><em> An instance of different initial conditions.</em></p>
 
-However, when the driving force is comparable to the weight, complicated non-linear behaviours arise. In other words, increasing the value $$\zeta$$ leads to large scale motion.
-
-## Period Doubling and Bifurcation point
-For different values of $$\zeta>1$$, the initial oscillations are wild. For instance, at $$\zeta = 1.06$$, a pendulum swings from $$\phi = 0$$ to $$\phi = 5\pi$$ in the first three drive cycles and undergoes two more cycles before settling down to quasi-sinusoidal oscillations. At $$\zeta = 1.073$$, it undergoes 20 unruly drive cycles and then settles to an oscillation motion with double the original period.[^3] This phenomena is known as period doubling[^5]. At a specific point, the one-cycle (single repeating state) undergoes a bifurcation, leading to a two-cyle state. A new periodic trajectory emerges with twice the period of the original. Further increase in the drive strength can lead to further bifurcation points and consequently increased period of motion.
-
-
-## Route to Chaos
-With the gradual increase in the driving strength, the period of the motion continues doubling. At $$\zeta_{c} =1.0829$$, known as the critical value, the DDP starts behaving chaotically. At this stage, the pendulum exhibits erratic motion that seems to be struggling to oscillate with the period of the driver. The oscillations never repeat themselves exactly, as the trajectry of phase space spirals around without any closed loops.
-Comparing the simulations
-
+However, when the driving force is comparable to the weight, complicated non-linear behaviours arise. In other words, increasing the value $$\zeta$$ leads to large scale motion in the non-linear form of the equation.
 
 
 ### Refrences
-[1] LibreTexts. (2016, October 18). 15.6: Damped Oscillations. Physics LibreTexts. https://phys.libretexts.org/Bookshelves/University_Physics/University_Physics_(OpenStax)/Book%3A_University_Physics_I__Mechanics_Sound_Oscillations_and_Waves_(OpenStax)/15%3A_Oscillations/15.06%3A_Damped_Oscillations
 
-[2],[4] Borkar, V. (2015). Oscillations in Damped Driven Pendulum: A Chaotic System. International Journal of Scientific and Innovative Mathematical Research (IJSIMR), 3(10), 14–27. https://www.arcjournals.org/pdfs/ijsimr/v3-i10/5.pdf
+[^1]: LibreTexts. (2016, October 18). 15.6: Damped Oscillations. Physics LibreTexts. https://phys.libretexts.org/Bookshelves/University_Physics/University_Physics_(OpenStax)/Book%3A_University_Physics_I__Mechanics_Sound_Oscillations_and_Waves_(OpenStax)/15%3A_Oscillations/15.06%3A_Damped_Oscillations
+[^2]:[ Borkar, V. (2015). Oscillations in Damped Driven Pendulum: A Chaotic System. International Journal of Scientific and Innovative Mathematical Research (IJSIMR), 3(10), 14–27. https://www.arcjournals.org/pdfs/ijsimr/v3-i10/5.pdf
+[^3]: Taylor, J. R. (2004). Classical Mechanics. University Science Books.
+[^4]: [2]
 
-[3] Taylor, J. R. (2004). Classical Mechanics. University Science Books.
 
-[5] Wikipedia contributors. (2025, October 4). Period-doubling bifurcation. In Wikipedia, The Free Encyclopedia. Retrieved 12:29, November 13, 2025, from https://en.wikipedia.org/w/index.php?title=Period-doubling_bifurcation&oldid=1315027005
 
 
 
