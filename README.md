@@ -1,4 +1,4 @@
-# Damped Driven Pendulum
+# Linear Damped Driven Pendulum solution using Runge-Kutta 4 approximation
 A classical system which upon displacement from equilibrium position experiences a restoring force proportional to the displacement is termed as the harmonic oscillator. 
 Mathematically, an ideal oscillator is described as,
 
